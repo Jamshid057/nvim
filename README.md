@@ -58,6 +58,23 @@ Bu fayl sizning Neovim konfiguratsiyangizdagi barcha keymap'larni o'z ichiga ola
 |--------|------|--------|
 | `<leader>s` | `n` | Hozirgi so'zni barcha joylarda almashtirish |
 
+### Comment (Komment qilish)
+
+| Keymap | Mode | Tavsif |
+|--------|------|--------|
+| `gcc` | `n` | Joriy qatorni komment qilish/olib tashlash |
+| `gbc` | `n` | Joriy block'ni komment qilish/olib tashlash |
+| `gc` | `v` | Tanlangan qatorlarni komment qilish/olib tashlash |
+| `gb` | `v` | Tanlangan block'ni komment qilish/olib tashlash |
+| `gcO` | `n` | Qator ustiga komment qo'shish |
+| `gco` | `n` | Qator ostiga komment qo'shish |
+| `gcA` | `n` | Qator oxiriga komment qo'shish |
+
+**Misol:**
+- Qator ustida `gcc` bosib komment qiling
+- Bir nechta qatorni tanlab (Visual mode) `gc` bosib komment qiling
+- Block tanlab `gb` bosib block komment qiling
+
 ---
 
 ## 🔧 LSP (Language Server Protocol)
@@ -181,4 +198,4 @@ Bu fayl sizning Neovim konfiguratsiyangizdagi barcha keymap'larni o'z ichiga ola
 
 ---
 
-*Oxirgi yangilanish: 2026-01-15*
+*Oxirgi yangilanish: 2026-01-15 (Comment keymap'lar qo'shildi)*
