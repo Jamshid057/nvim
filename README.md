@@ -12,7 +12,7 @@ Bu fayl sizning Neovim konfiguratsiyangizdagi barcha keymap'larni o'z ichiga ola
 
     :colorscheme
 
-    choose from themes
+choose from themes in list
 
 
 ---
