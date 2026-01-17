@@ -8,9 +8,11 @@ Bu fayl sizning Neovim konfiguratsiyangizdagi barcha keymap'larni o'z ichiga ola
 
 ---
 
-    Theme almashtirish
+##  Theme almashtirish
 
-:colorscheme [choose from themes ->]
+    :colorscheme
+
+    choose from themes
 
 
 ---
