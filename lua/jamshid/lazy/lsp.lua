@@ -30,11 +30,11 @@ return {
                 "ts_ls",
                 "clangd",
                 "pyright",
-                "ruff",           -- Python linting uchun
+                "ruff", -- Python linting uchun
                 "jsonls",
                 "marksman",
                 "html",
-                "cssls",          -- CSS uchun
+                "cssls", -- CSS uchun
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -42,7 +42,7 @@ return {
                     if server_name ~= "rust_analyzer" and server_name ~= "ruff_lsp" then
                         require("lspconfig")[server_name].setup({
                             capabilities = capabilities,
-                            offsetEncoding = { "utf-8" },  -- UTF-8 position encoding
+                            offsetEncoding = { "utf-8" }, -- UTF-8 position encoding
                         })
                     end
                 end,
@@ -65,7 +65,7 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.pyright.setup({
                         capabilities = capabilities,
-                        offsetEncoding = { "utf-8" },  -- UTF-8 position encoding
+                        offsetEncoding = { "utf-8" }, -- UTF-8 position encoding
                         root_dir = function(fname)
                             local util = require("lspconfig.util")
                             local root = util.root_pattern(
@@ -80,8 +80,8 @@ return {
                         settings = {
                             python = {
                                 analysis = {
-                                    typeCheckingMode = "off",  -- Type checking o'chirilgan
-                                    diagnosticMode = "off",  -- Barcha diagnostic'lar o'chirilgan
+                                    typeCheckingMode = "off", -- Type checking o'chirilgan
+                                    diagnosticMode = "off", -- Barcha diagnostic'lar o'chirilgan
                                     useLibraryCodeForTypes = false,
                                     autoSearchPaths = true,
                                     -- Django uchun barcha xatoliklarni o'chirish
@@ -130,7 +130,7 @@ return {
                                         reportUnusedVariable = "none",
                                     },
                                     -- Django uchun qo'shimcha sozlamalar
-                                    stubPath = vim.fn.expand("~/.config/nvim/stubs"),  -- Django stubs uchun
+                                    stubPath = vim.fn.expand("~/.config/nvim/stubs"), -- Django stubs uchun
                                 },
                             },
                         },
@@ -149,7 +149,7 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup({
                         capabilities = capabilities,
-                        offsetEncoding = { "utf-8" },  -- UTF-8 position encoding
+                        offsetEncoding = { "utf-8" }, -- UTF-8 position encoding
                         settings = {
                             Lua = {
                                 runtime = { version = "Lua 5.1" },
@@ -165,8 +165,8 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.html.setup({
                         capabilities = capabilities,
-                        offsetEncoding = { "utf-8" },  -- UTF-8 position encoding
-                        filetypes = { "html", "htmldjango" },  -- Django template uchun
+                        offsetEncoding = { "utf-8" }, -- UTF-8 position encoding
+                        filetypes = { "html", "htmldjango" }, -- Django template uchun
                         settings = {
                             html = {
                                 format = {
@@ -182,7 +182,7 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.cssls.setup({
                         capabilities = capabilities,
-                        offsetEncoding = { "utf-8" },  -- UTF-8 position encoding
+                        offsetEncoding = { "utf-8" }, -- UTF-8 position encoding
                         settings = {
                             css = {
                                 validate = true,
@@ -198,15 +198,15 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.ruff_lsp.setup({
                         capabilities = capabilities,
-                        offsetEncoding = { "utf-8" },  -- UTF-8 position encoding
+                        offsetEncoding = { "utf-8" }, -- UTF-8 position encoding
                         init_options = {
                             settings = {
                                 args = {},
                                 -- Django-specific Ruff configuration
                                 extendSelect = {},
                                 ignore = {
-                                    "DJ01",  -- Django-specific
-                                    "E501",  -- Line too long (handled by formatter)
+                                    "DJ01", -- Django-specific
+                                    "E501", -- Line too long (handled by formatter)
                                 },
                             },
                         },
@@ -229,9 +229,9 @@ return {
 
         -- Diagnostic ko'rsatish sozlamalari
         vim.diagnostic.config({
-            virtual_text = true,   -- Virtual text yoqilgan
-            signs = true,          -- Signs yoqilgan
-            underline = true,      -- Underline yoqilgan
+            virtual_text = true, -- Virtual text yoqilgan
+            signs = true, -- Signs yoqilgan
+            underline = true, -- Underline yoqilgan
             update_in_insert = false,
             severity_sort = true,
             float = {
@@ -245,13 +245,11 @@ return {
         })
 
         -- Hover window sozlamalari (K tugmasi uchun)
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-            vim.lsp.handlers.hover, {
-                border = "rounded",
-                max_width = 80,
-                max_height = 20,
-            }
-        )
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = "rounded",
+            max_width = 80,
+            max_height = 20,
+        })
 
         -- Global diagnostika handler - null-ls va pyright diagnostikalarini filter qilish
         local original_diagnostic_handler = vim.lsp.handlers["textDocument/publishDiagnostics"]

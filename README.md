@@ -4,6 +4,15 @@ Bu fayl sizning Neovim konfiguratsiyangizdagi barcha keymap'larni o'z ichiga ola
 
 **Leader Key:** `<Space>` (bo'sh joy)
 
+
+
+---
+
+    Theme almashtirish
+
+:colorscheme [choose from themes ->]
+
+
 ---
 
 ## 📁 Fayl Boshqaruvi
@@ -198,4 +207,4 @@ Bu fayl sizning Neovim konfiguratsiyangizdagi barcha keymap'larni o'z ichiga ola
 
 ---
 
-*Oxirgi yangilanish: 2026-01-15 (Comment keymap'lar qo'shildi)*
+*Oxirgi yangilanish: 2026-01-15 *
