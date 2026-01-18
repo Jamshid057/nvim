@@ -2,6 +2,37 @@ require("jamshid.remap")
 require("jamshid.set")
 require("jamshid.lazy_init")
 
+-- Theme saqlash funksiyasi
+local theme_file = vim.fn.stdpath("config") .. "/.theme"
+local function save_theme()
+    local current_theme = vim.g.colors_name
+    if current_theme then
+        vim.fn.writefile({ current_theme }, theme_file)
+    end
+end
+
+local function load_theme()
+    if vim.fn.filereadable(theme_file) == 1 then
+        local saved_theme = vim.fn.readfile(theme_file)[1]
+        if saved_theme and saved_theme ~= "" then
+            vim.defer_fn(function()
+                pcall(vim.cmd.colorscheme, saved_theme)
+            end, 100)
+            return true
+        end
+    end
+    return false
+end
+
+-- Theme yuklash (agar saqlangan bo'lsa)
+load_theme()
+
+-- Theme o'zgarganda saqlash
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    callback = save_theme,
+})
+
 
 local augroup = vim.api.nvim_create_augroup
 local JamshidGroup = augroup('Jamshid', {})

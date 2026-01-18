@@ -48,8 +48,13 @@ return {
                     },
                 },
             })
-            -- Default theme - mocha
-            vim.cmd.colorscheme("catppuccin-mocha")
+            -- Default theme o'rnatish (faqat agar saqlangan theme bo'lmasa)
+            -- init.lua'da saqlangan theme yuklanadi, agar yo'q bo'lsa mocha o'rnatiladi
+            vim.defer_fn(function()
+                if vim.g.colors_name == nil then
+                    vim.cmd.colorscheme("catppuccin-mocha")
+                end
+            end, 200)
         end,
     },
     {
